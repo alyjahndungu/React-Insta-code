@@ -12,9 +12,16 @@ import {
   Box,
   TextField,
   Typography,
+  Avatar,
+  Paper,
+  List,
+  ListItemText,
+  ListItem,
+  ListItemAvatar,
+  TextareaAutosize
 } from "@material-ui/core";
 
-import { Search, Menu } from "@material-ui/icons";
+import { Search, FilterListOutlined, MoreVert, AttachmentOutlined, MoodOutlined, MicOutlined, SendOutlined, InfoOutlined } from "@material-ui/icons";
 
 import Chats from "./Chats";
 
@@ -119,9 +126,47 @@ const useStyles = makeStyles((theme) => ({
   },
   messageCard: {
       borderRadius: 10,
-      backgroundColor: '#fafafa'
-  }
+      backgroundColor: '#fafafa',
+  },
+  profileCard: {
+        borderRadius: 10,
+       backgroundColor: '#b2ebf2',
+
+  },
+  list: {
+      marginTop: 0
+  },
+  cardMessage :{
+       backgroundColor: '#b2ebf2',
+       color: '#1c2331',
+       borderBottomLeftRadius: 45,
+       borderTopRightRadius: 45,
+       borderBottomRightRadius: 45
+
+
+  },
+   cardReply: {
+        backgroundColor: '#efebe9',
+       color: '#1c2331',
+       borderBottomLeftRadius: 45, 
+       borderTopRightRadius: 45,
+       borderTopLeftRadius: 45
+
+
+   }
 }));
+
+const messages = [
+  {
+    id: 1,
+    name: 'Shirly Cook',
+    twitter: "@JohntheD",
+    person: '/static/images/u1.jpeg',
+    title: 'Inquiry about relocation from Nairobi',
+    new_message: 'Loco in voluptate velit esse cillum dolorsint occaecat ollit anim id est laborum.',
+    replies: 'Lorem ercitationprehenderit in voluptate sint occaecat cupida.'
+  },
+];
 
 const InboxView = () => {
   const classes = useStyles();
@@ -206,7 +251,7 @@ const InboxView = () => {
               className={classes.iconMenu}
               onClick={handleOpen}
             >
-              <Menu />
+              <FilterListOutlined />
             </IconButton>
             <Modal
               open={open}
@@ -232,11 +277,237 @@ const InboxView = () => {
           <Chats />
         </Grid>
         <Grid item xs={7}>
-          <Card className={classes.messageCard}>
+         <Card className={classes.messageCard}>
             <CardContent>
+         <List className={classes.list}>
+          {messages.map(({ id, name, twitter, person, title }) => (
+           <Box my={3} >
+
+            <Paper  className={classes.profileCard} key={id}>
+              <ListItem button>
+                <ListItemAvatar>
+                  <Avatar alt="Profile Picture" src={person} />
+                <ListItemText primary={name} secondary={twitter} />
+                </ListItemAvatar>
+                <Box p={4}>
+                <Typography variant="h5" > {title}
+                </Typography>
+                    <Button
+        variant="contained"
+        style={{left: 440, backgroundColor: '#424242',borderRadius: 12, color: '#fff'}} size="large"
+        className={classes.button}
+        startIcon={<InfoOutlined />}
+      >
+        Contact info
+      </Button>
+
+<IconButton style={{left: 440, marginLeft: 5, color: '#424242'}} size="large" variant="outlined">
+<MoreVert />
+</IconButton>
+
+                </Box>
+              </ListItem>
+              
+            </Paper>
+
+        </Box>
+
+          ))}
+        </List>
+
+
+<Grid container spacing={4}>
+<Grid item xs={6}>   
+      <Card className={classes.cardMessage}>
+        <CardContent>
+         <List className={classes.list}>
+          {messages.map(({ id, name, twitter, person, title, new_message, replies}) => (
+           <Box my={3} >
+
+            <Typography >{new_message}</Typography>
             
+           </Box>
+
+          ))}
+        </List>
+
+        </CardContent>
+        </Card>
+</Grid>
+
+   </Grid>
+
+   <Grid container spacing={4}>
+<Grid item xs={6} />   
+
+<Grid item xs={6}>   
+
+         <Card className={classes.cardReply}>
+        <CardContent>
+         <List className={classes.list}>
+          {messages.map(({ id, name, twitter, person, title, new_message, replies}) => (
+           <Box my={3} >
+
+            <Typography >{replies}</Typography>
+            
+           </Box>
+
+          ))}
+        </List>
+        </CardContent>
+        </Card>
+   </Grid>
+   </Grid>
+
+   {/* message chat row 2 */}
+
+
+<Grid container spacing={4}>
+<Grid item xs={6}>   
+      <Card className={classes.cardMessage}>
+        <CardContent>
+         <List className={classes.list}>
+          {messages.map(({ id, name, twitter, person, title, new_message, replies}) => (
+           <Box my={3} >
+
+            <Typography >{new_message}</Typography>
+            
+           </Box>
+
+          ))}
+        </List>
+
+        </CardContent>
+        </Card>
+</Grid>
+
+   </Grid>
+
+   <Grid container spacing={4}>
+<Grid item xs={6} />   
+
+<Grid item xs={6}>   
+
+         <Card className={classes.cardReply}>
+        <CardContent>
+         <List className={classes.list}>
+          {messages.map(({ id, name, twitter, person, title, new_message, replies}) => (
+           <Box my={3} >
+
+            <Typography >{replies}</Typography>
+            
+           </Box>
+
+          ))}
+        </List>
+        </CardContent>
+        </Card>
+   </Grid>
+   </Grid>
+
+{/* message chat row 3
+ */}
+
+
+<Grid container spacing={4}>
+<Grid item xs={6}>   
+      <Card className={classes.cardMessage}>
+        <CardContent>
+         <List className={classes.list}>
+          {messages.map(({ id, name, twitter, person, title, new_message, replies}) => (
+           <Box my={3} >
+
+            <Typography >{new_message}</Typography>
+            
+           </Box>
+
+          ))}
+        </List>
+
+        </CardContent>
+        </Card>
+</Grid>
+
+   </Grid>
+
+   <Grid container spacing={4}>
+<Grid item xs={6} />   
+
+<Grid item xs={6}>   
+
+         <Card className={classes.cardReply}>
+        <CardContent>
+         <List className={classes.list}>
+          {messages.map(({ id, name, twitter, person, title, new_message, replies}) => (
+           <Box my={3} >
+
+            <Typography >{replies}</Typography>
+            
+           </Box>
+
+          ))}
+        </List>
+        </CardContent>
+        </Card>
+   </Grid>
+   </Grid>
+
+
+{/* Message Input typing area
+ */}
+
+<Box my={3} justifyContent="center" display="flex">
+ <TextareaAutosize aria-label="minimum height"
+   InputProps={{
+                  disableUnderline: true,
+                  classes: {
+                    root: classes.textFieldRoot,
+                    input: classes.textFieldInput,
+                  },
+                }}
+                InputLabelProps={{
+                  shrink: true,
+                  className: classes.textFieldFormLabel,
+                }}
+  frowsMin={3} placeholder="Type your message" style={{borderRadius: 25, width: '100%', height: 100}} />
+</Box>
+<Box my={3} justifyContent="center" display="flex">
+<IconButton
+              color="primary"
+              aria-label="add menu"
+              className={classes.iconMenu}
+            >
+              <AttachmentOutlined />
+            </IconButton>
+
+            <IconButton
+              color="primary"
+              aria-label="add menu"
+              className={classes.iconMenu}
+            >
+              <MoodOutlined />
+            </IconButton>
+
+            <IconButton
+              color="primary"
+              aria-label="add menu"
+              className={classes.iconMenu}
+            >
+              <MicOutlined />
+            </IconButton>
+
+             <Button
+              color="primary"
+              aria-label="add menu"
+              style={{width: 80, color: '#fff', backgroundColor: '#fdd835',borderRadius: 6}}
+            >
+              <SendOutlined />
+            </Button>
+</Box>
+           
+        
             </CardContent>
-          </Card>
+            </Card>
         </Grid>
       </Grid>
     </div>

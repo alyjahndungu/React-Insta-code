@@ -15,10 +15,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
 import Avatar from '@material-ui/core/Avatar';
-import MenuIcon from '@material-ui/icons/Menu';
-import AddIcon from '@material-ui/icons/Add';
-import SearchIcon from '@material-ui/icons/Search';
-import MoreIcon from '@material-ui/icons/MoreVert';
+
 
 const messages = [
   {
@@ -33,7 +30,7 @@ const messages = [
     id: 2,
       name: 'Shirly Cook',
     twitter: "@JohntheD",
-    person: '/static/images/u1.jpeg',
+    person: '/static/images/u2.jpeg',
     text: 'Vacancy ads helps you attract potential hires who are...',
     title: 'Inquiry about reloca...'
   },
@@ -49,7 +46,7 @@ const messages = [
     id: 4,
    name: 'Shirly Cook',
     twitter: "@JohntheD",
-    person: '/static/images/u1.jpeg',
+    person: '/static/images/u2.jpeg',
     text: 'Vacancy ads helps you attract potential hires who are...',
     title: 'Inquiry about reloca...'
   },
@@ -102,7 +99,7 @@ const useStyles = makeStyles((theme) => ({
     margin: '0 auto',
   },
   listCard: {
-      backgroundColor: '#fafafa',
+      backgroundColor: '#e0f7fa',
       marginLeft: 20,
       marginRight: 20,
       borderRadius: 12
@@ -130,7 +127,8 @@ const Chats = () =>  {
                 <ListItemText primary={name} secondary={twitter} />
                 </ListItemAvatar>
                 <Box p={4}>
-                <ListItemText primary={title} secondary={text} />
+                <Typography variant="h6">{title}</Typography>
+                <ListItemText secondary={text} />
                 </Box>
               </ListItem>
        </CardContent>

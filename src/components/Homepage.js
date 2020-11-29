@@ -118,8 +118,8 @@ const useStyles = makeStyles((theme) => ({
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            Persistent drawer
+          <Typography variant="h5" noWrap>
+            Insta-Driver 
           </Typography>
         </Toolbar>
       </AppBar>
